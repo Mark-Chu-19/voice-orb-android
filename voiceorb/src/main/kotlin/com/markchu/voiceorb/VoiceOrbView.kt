@@ -85,7 +85,7 @@ class VoiceOrbView @JvmOverloads constructor(
     private var stateChangedAtMillis = startUptimeMillis
 
     /** Smoothed presentation scale, eased toward the state target each frame. */
-    private var renderedScale = 1f
+    private var presentedScale = 1f
 
     /** Smoothed input level so voice reactivity feels springy instead of jittery. */
     private var renderedLevel = 0f
@@ -114,12 +114,12 @@ class VoiceOrbView @JvmOverloads constructor(
         if (size <= 0) return
 
         val t = (SystemClock.uptimeMillis() - startUptimeMillis) / 1000f
-        renderedScale += (targetScale() - renderedScale) * SCALE_SMOOTHING
+        presentedScale += (stateScale() - presentedScale) * SCALE_EASE
         renderedLevel += (inputLevel - renderedLevel) * LEVEL_SMOOTHING
 
         val cx = width / 2f
         val cy = height / 2f
-        val baseRadius = size * BASE_RADIUS_FRACTION * renderedScale
+        val baseRadius = size * BASE_RADIUS_FRACTION * presentedScale
 
         drawAura(canvas, cx, cy, baseRadius, t)
         drawBlob(canvas, cx, cy, baseRadius, t)
@@ -215,7 +215,7 @@ class VoiceOrbView @JvmOverloads constructor(
     }
 
     /** Per-state presentation scale: subdued when idle, enlarged when engaged. */
-    private fun targetScale(): Float =
+    private fun stateScale(): Float =
         when (state) {
             OrbState.IDLE -> 0.82f
             OrbState.LISTENING -> 1.0f
@@ -264,7 +264,7 @@ class VoiceOrbView @JvmOverloads constructor(
         const val BLOB_VERTEX_COUNT = 90
 
         /** Fraction of the remaining gap applied per frame (~0.3 s perceived transition). */
-        const val SCALE_SMOOTHING = 0.14f
+        const val SCALE_EASE = 0.12f
 
         /** Faster smoothing for voice level so reactivity feels immediate but not jittery. */
         const val LEVEL_SMOOTHING = 0.35f

@@ -38,18 +38,18 @@ class CaptionBubbleView @JvmOverloads constructor(
         }
 
     init {
-        setTextColor(Color.WHITE)
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+        setTextColor(Color.rgb(235, 242, 255))
+        setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f)
         gravity = Gravity.CENTER_HORIZONTAL
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             breakStrategy = Layout.BREAK_STRATEGY_SIMPLE
         }
-        setPadding(dp(14), dp(8), dp(14), dp(8))
+        setPadding(dp(16), dp(10), dp(16), dp(10))
         background =
             GradientDrawable().apply {
-                setColor(Color.argb(230, 22, 26, 34))
-                cornerRadius = dp(16).toFloat()
-                setStroke(dp(1), Color.argb(150, 130, 150, 190))
+                setColor(Color.argb(235, 14, 19, 31))
+                cornerRadius = dp(18).toFloat()
+                setStroke(dp(1), Color.argb(140, 100, 160, 255))
             }
         visibility = GONE
     }
