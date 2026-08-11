@@ -1,5 +1,8 @@
 # VoiceOrb 🔮
 
+[![Android CI](https://github.com/Mark-Chu-19/voice-orb-android/actions/workflows/android.yml/badge.svg)](https://github.com/Mark-Chu-19/voice-orb-android/actions/workflows/android.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 An animated **voice-assistant orb** for Android — the living, breathing visual heart of a voice UI.
 
 Built with nothing but `View` + `Canvas`: **zero dependencies**, a single self-driving render
