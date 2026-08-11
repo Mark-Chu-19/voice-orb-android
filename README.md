@@ -8,6 +8,13 @@ An animated **voice-assistant orb** for Android — the living, breathing visual
 Built with nothing but `View` + `Canvas`: **zero dependencies**, a single self-driving render
 loop, and an organic look that reacts to the user's voice in real time.
 
+<p align="center">
+  <img src="docs/demo.gif" width="640" alt="VoiceOrb demo: idle, listening with voice-reactive blob, thinking, and speaking states" />
+</p>
+
+*Recorded on an Android Automotive emulator — idle → listening (slider simulating voice energy) →
+thinking → speaking with the caption bubble.*
+
 ## Features
 
 - **Four states, one continuous motion** — `IDLE`, `LISTENING`, `THINKING`, `SPEAKING`. Every
