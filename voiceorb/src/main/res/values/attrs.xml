@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VoiceOrbView">
+        <!-- Fill color of the orb body. -->
+        <attr name="orbCoreColor" format="color" />
+        <!-- Color of the breathing halo behind the orb. -->
+        <attr name="orbAuraColor" format="color" />
+        <!-- Color of state ornaments: thinking dots and speaking pulse rings. -->
+        <attr name="orbAccentColor" format="color" />
+    </declare-styleable>
+</resources>
